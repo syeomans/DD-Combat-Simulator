@@ -91,7 +91,6 @@ class Player:
         if uncon and self.currentHealth >0:
             print(self.name+' is no longer unconscious.')
 
-
     def hit(self, damage):
         if type(damage)==int:
             self.currentHealth -= damage
@@ -103,7 +102,7 @@ class Player:
         if self.currentHealth <= 0:
             print(self.name+' fell unconscious.')
         self.save()
-    
+
     def stats(self):
         out = "Str: "+str(self.strength)+"\nDex: "+str(self.dexterity)+"\nCon: "+str(self.constitution)
         out = out+"\nInt: "+str(self.intelligence)+"\nWis: "+str(self.wisdom)+"\nCha: "+str(self.charisma)
@@ -119,7 +118,7 @@ class Player:
                 newHealth = randrange(1,self.hitDie+1) + self.conMod
                 break
         return newHealth
-    
+
     def xp(self, points):
         oldLv = self.Lv
         self.xp += points
@@ -230,7 +229,7 @@ class Player:
     def doff(self):
         self.equippedArmor = {'AC':10,'Base price':0, 'Weight':0}
         self.save()
-            
+
     def viewInventory(self,typ=''):
         if typ == '':
             for key in self.inventory.keys():
@@ -255,12 +254,10 @@ def loadCharacter(character):
 
 ##########Script
 
-
-#Bruenor = Player("Bruenor","Dwarf", "Fighter", 15, 14, 13, 12, 10, 8, 0)
-Bruenor = loadCharacter("Bruenor")
-Bruenor.addItem('Weapon','Longsword',15,3,'1d8','Versatile','Slashing')
-Bruenor.viewInventory()
-#Bruenor.draw('Longsword')
+#
+# #Bruenor = Player("Bruenor","Dwarf", "Fighter", 15, 14, 13, 12, 10, 8, 0)
+# Bruenor = loadCharacter("Bruenor")
+# Bruenor.addItem('Weapon','Longsword',15,3,'1d8','Versatile','Slashing')
+# Bruenor.viewInventory()
+# #Bruenor.draw('Longsword')
 #print Bruenor.equippedWeapon
-
-
